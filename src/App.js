@@ -2,7 +2,6 @@ import React from "react"
 import Die from "./Die"
 import {nanoid} from "nanoid"
 import Confetti from "react-confetti"
-import Modal from "./components/Modal"
 
 
 export default function App() {
@@ -88,7 +87,7 @@ export default function App() {
                 {tenzies ? "New Game" : "Roll"}
             </button>
         </main>
-        {jackpot && <h1>JAAAAAACKPOOOOOOOOT!</h1>}
+        {/* {jackpot && <h1>JAAAAAACKPOOOOOOOOT!</h1>} */}
         </div>
     )
 }
