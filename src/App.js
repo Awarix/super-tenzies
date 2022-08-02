@@ -1,7 +1,8 @@
 import React from "react"
-import Die from "./Die"
+import Die from "./components/Die"
 import {nanoid} from "nanoid"
 import Confetti from "react-confetti"
+import Intro from "./components/Intro"
 
 
 export default function App() {
@@ -69,10 +70,21 @@ export default function App() {
             holdDice={() => holdDice(die.id)}
         />
     ))
+
+    // Intro
+
+    const [start, setStart] = React.useState (false)
+    const [show, setShow] = React.useState (true)
+    function letStart () {
+    setStart(prevStart => !prevStart)
+    setShow(prevShow => !prevShow)
+    console.log(start)
+    }
     
     return (
         <div>
-        <main>
+            {show && <Intro letStart={letStart}/>}
+        {start && <main>
             {tenzies && <Confetti />}
             <h1 className="title">Super Tenzies</h1>
             <p className="instructions">Roll until all dice are the same. 
@@ -86,7 +98,7 @@ export default function App() {
             >
                 {tenzies ? "New Game" : "Roll"}
             </button>
-        </main>
+        </main>}
         {/* {jackpot && <h1>JAAAAAACKPOOOOOOOOT!</h1>} */}
         </div>
     )

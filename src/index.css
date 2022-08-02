@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -6,16 +8,16 @@ body {
   margin: 0;
   background-color: #0B2434;
   padding: 20px;
-  font-family: 'Karla', sans-serif;
-  background-color: #7fd82b;
-  background-image: linear-gradient(319deg, #7fd82b 0%, #ef4063 37%, #e557c6 100%);
+  font-family: 'Inter', sans-serif;
+  background-image: linear-gradient(149deg, #f810f4e0 0%, #f73755 35%, #eb29c7 100%);
+  background-attachment: fixed;
 }
 
 main {
   background-color: #F5F5F5;
   height: 600px;
   max-width: 800px;
-  border-radius: 5px;
+  border-radius: 20px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -65,8 +67,8 @@ main {
   border-radius: 6px;
   background-color: #5035FF;
   color: white;
-  font-size: 1.2rem;
-  font-family: 'Karla', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
   cursor: pointer;
 }
 
@@ -76,4 +78,60 @@ main {
 
 .roll-dice:active {
   box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
+/* Intro  */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 4rem;
+}
+
+.intro-tittle {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  color: snow;
+}
+
+.intro-about {
+  font-size: 20px;
+  line-height: 35px;
+  font-weight: 600;
+  text-align: center;
+  color: snow;
+}
+
+.button-holder {
+  display: flex;
+}
+
+.intro-button {
+  margin: 20px;
+  width: 230px;
+  outline: 0;
+  text-align: center;
+  cursor: pointer;
+  padding: 17px 30px;
+  border: 0;
+  color: #fff;
+  font-size: 17.5px;
+  border: 2px solid transparent;
+  border-color: #fff;
+  color: #fff;
+  background: transparent;
+  font-weight: 800;
+  line-height: 30px;
+  transition: background,color .1s ease-in-out;
+  background-color: #000;
+}
+
+.intro-button:hover {
+  background-color: transparent;
+  
 }
