@@ -7,6 +7,70 @@ import Intro from "./components/Intro"
 
 export default function App() {
 
+    //Wallet connect
+  // State
+  const [walletAddress, setWalletAddress] = React.useState(null);
+
+  // Actions
+  const checkIfWalletIsConnected = async () => {
+    try {
+      const { solana } = window;
+
+      if (solana) {
+        if (solana.isPhantom) {
+          console.log('Phantom wallet found!');
+          const response = await solana.connect({ onlyIfTrusted: true });
+          console.log(
+            'Connected with Public Key:',
+            response.publicKey.toString()
+          );
+          setStart(prevStart => !prevStart)
+          setShow(prevShow => !prevShow)
+          /*
+           * Set the user's publicKey in state to be used later!
+           */
+          setWalletAddress(response.publicKey.toString());
+        }
+      } else {
+        alert('Solana object not found! Get a Phantom Wallet 👻');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const connectWallet = async () => {
+    const { solana } = window;
+  
+    if (solana) {
+      const response = await solana.connect();
+      console.log('Connected with Public Key:', response.publicKey.toString());
+      setWalletAddress(response.publicKey.toString());
+      setStart(true)
+      setShow(false)
+    }
+  };
+
+  const renderNotConnectedContainer = () => (
+    <button
+      className="intro-button"
+      onClick={connectWallet}
+    >
+      Connect to Wallet
+    </button>
+  );
+
+  // UseEffects
+  React.useEffect(() => {
+    const onLoad = async () => {
+      await checkIfWalletIsConnected();
+    };
+    window.addEventListener('load', onLoad);
+    return () => window.removeEventListener('load', onLoad);
+  }, []);
+
+  //Wallet connect end
+
     const [dice, setDice] = React.useState(allNewDice())
     const [tenzies, setTenzies] = React.useState(false)
 
@@ -83,12 +147,16 @@ export default function App() {
     
     return (
         <div>
-            {show && <Intro letStart={letStart}/>}
+            {!walletAddress && show && <Intro letStart={letStart} walletButton={renderNotConnectedContainer()}/>}
         {start && <main>
             {tenzies && <Confetti />}
             <h1 className="title">Super Tenzies</h1>
-            <p className="instructions">Roll until all dice are the same. 
-            Click each die to freeze it at its current value between rolls.</p>
+            <p className="instructions">
+            Super Tenzies is a simple roll-dice game. <br />
+            Roll until all dice are the same.  <br />
+            Click each die to freeze it at its current value between rolls. <br />
+            You need to win the game in <p style={{textDecoration:"underline" , display: "inline"}}>less than 30 seconds to be whitelisted</p>
+            !</p>
             <div className="dice-container">
                 {diceElements}
             </div>

@@ -11,7 +11,7 @@ export default function Intro (props) {
             You need to win the game in <p style={{textDecoration:"underline" , display: "inline"}}>less than 30 seconds to be whitelisted</p>
             !</p>
             <div className="button-holder">
-            <button className="intro-button" onClick={props.letStart}>Connect Wallet</button>
+            {props.walletButton}
             <button className="intro-button" onClick={props.letStart}>Play without wallet</button>
             </div>
         </div>

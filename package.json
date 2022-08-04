@@ -4,6 +4,11 @@
   "homepage": "https://awarix.github.io/super-tenzies",
   "private": true,
   "dependencies": {
+    "@solana/wallet-adapter-base": "^0.9.9",
+    "@solana/wallet-adapter-react": "^0.15.8",
+    "@solana/wallet-adapter-react-ui": "^0.9.11",
+    "@solana/wallet-adapter-wallets": "^0.17.0",
+    "@solana/web3.js": "^1.50.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",

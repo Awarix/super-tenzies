@@ -15,7 +15,7 @@ body {
 
 main {
   background-color: #F5F5F5;
-  height: 600px;
+  /* height: 600px; */
   max-width: 800px;
   border-radius: 20px;
   padding: 20px;
@@ -33,9 +33,10 @@ main {
 
 .instructions {
   font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  margin-top: 0;
+  font-weight: 300;
+  margin: 15px 0px;
   text-align: center;
+  line-height: 22px;
 }
 
 .dice-container {
